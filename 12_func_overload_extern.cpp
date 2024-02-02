@@ -70,6 +70,9 @@ int main()
 а также, чтобы этот объектный файл мог собираться С и С++ компоновщиками.
 */
 
+	return 0;
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
@@ -82,13 +85,10 @@ void show_msg(const char* msg)
 
 #ifdef __cplusplus
 }
-#indef // __cplusplus
+#endif // __cplusplus
 
 /*
 директивы условной компиляции нужны для того,
 чтобы extern "C" был только для С++, поскольку
 в С такой конструкции нет.
 */
-
-	return 0;
-}

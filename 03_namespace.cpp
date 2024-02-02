@@ -8,19 +8,19 @@
 // создаём своё пр-во имён:
 namespace firstSpace
 {
-void foo()
-{
-	std::cout << "function from firstSpace: foo()" << std::endl;
-}
+	void foo()
+	{
+		std::cout << "function from firstSpace: foo()" << std::endl;
+	}
 }
 
 // М.б. переопределение в глоб. пр-ве имён, поэтому и создали концепт пр-в имён.
 namespace secondSpace
 {
-void foo()
-{
-	std::cout << "function from secondSpace: foo()" << std::endl;
-}
+	void foo()
+	{
+		std::cout << "function from secondSpace: foo()" << std::endl;
+	}
 }
 
 // Можно добавлять в пр-во, разрывая его наполнение (в разных местах программы добавлять в него эл-ты)
@@ -31,7 +31,7 @@ namespace firstSpace
 		double x, y;
 	};
 
-	// Вложенные пр-ва имён: обращаться к его наполнению через OuterNameSpace::innerNameSpace::int_a
+	// Вложенные пр-ва имён: обращаться к его наполнению через OuterNameSpace::InnerNameSpace::int_a
 	namespace params
 	{
 		int global_a = 5;

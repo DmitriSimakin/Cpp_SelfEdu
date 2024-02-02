@@ -5,14 +5,14 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-void swap_p_d(double* x, double* y)
+void swap_pointers_d(double* x, double* y)
 {
 	double t = *x;
 	*x = *y;
 	*y = t;
 }
 
-void swap_lnk_d(double& x, double& y)
+void swap_references_d(double& x, double& y)
 {
 	double t = x;
 	x = y;
@@ -33,15 +33,20 @@ double length(const point& p)
 
 int main()
 {
-	// int d{10};
-	// int& lnk_d = d;
+	int d{10};
+	int& lnk_d = d;
 
-	// lnk_d = -5;
-	// cout << lnk_d << endl;
+	// lnk_d = -5; // присваиваем значение d, это аналогично разыменовыванию указателя.
+	// cout << "lnk_d = " << lnk_d << endl;
+	// cout << "d = " << d << endl;
+
 	// lnk_d *= 10;
-	// cout << lnk_d << endl;
+	// cout << "lnk_d = " << lnk_d << endl;
+	// cout << "d = " << d << endl;
+
 	// lnk_d++;
-	// cout << lnk_d << endl;
+	// cout << "lnk_d = " << lnk_d << endl;
+	// cout << "d = " << d << endl;
 
 // при объявлении ссылки её сразу же нужно проинициализировать.
 	// double& alias_d;  // ошибка.
@@ -62,46 +67,49 @@ int main()
 
 // Польза ссылок:
 
-	double a{1.2}, b{-3.4};
-// Работа с указателями:
-	swap_p_d(&a, &b);
-	// cout << a << " " << b << endl;
+// 	double a{1.2}, b{-3.4};
+// // Работа с указателями:
+// 	swap_pointers_d(&a, &b);
+// 	cout << a << " " << b << endl;
 
-// Работа с ссылками:
-	swap_lnk_d(a, b);
-	// cout << a << " " << b << endl;
+// // Работа с ссылками:
+// 	swap_references_d(a, b);
+// 	cout << a << " " << b << endl;
 
-	// нельзя: (д.б. lvalue значение)
-	// swap_lnk_d(a, 10); // а с указателями бы ошибка была только в программе.
-	// ссылки более безопасны.
+// // нельзя: (д.б. lvalue значение)
+// 	swap_references_d(a, 10); // а с указателями бы ошибка была только в программе.
+// 									  // ссылки более безопасны. (сомнительное утверждение)
 
 	short p[] = {1, 2, 3, 4};
 
-// ничего не поменялось.
+// ничего не поменялось. (в "x" копируются значения из массива)
 	// for (short x: p)
 	// 	x *= 2;
 
 	// for(short x: p)
 	// 	cout << x << " ";
 	// cout << endl;
-// меняем значения:
+// меняем значения: (в "x" напрямую передаются значения из массива)
 	// for (short& x: p)
 	// 	x *= 2;
 
 	// for(short x: p)
 	// 	cout << x << " ";
+	// cout << endl;
 
 // константные ссылки.
 // если объявляем const ссылку, то через неё нельзя менять значение, только читать.
-	// int s = 0;
-	// const int& ls = s;
+	int s = 0;
+	const int& ls = s;
 
-	// int x = ls;
-	// cout << x << endl;
+	int x = ls;
+	cout << x << endl;
+	x++; // но здесь уже можно менять.
+	cout << x << endl;
 
-	// // ls = -2; // нельзя
-	// s = 2; // можно
-	// cout << ls << endl;
+	// ls = -2; // нельзя
+	s = 2; // можно
+	cout << ls << endl; // 2
 
 // для const int можно создать только const int& тип.
 	// const int con_var = 10;

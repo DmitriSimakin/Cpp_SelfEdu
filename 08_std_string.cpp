@@ -37,7 +37,23 @@ int main()
       cout << *it << " ";
    cout << endl;
 
-   for(int i=0; ptr_)
+const char* ptr_str = fio.data();
+   for(int i=0; ptr_str[i] != '\0'; ++i)
+		cout << ptr_str[i] << " ";
+	cout << endl;
+
+	std::string msg {"Hello"};
+	std::string name {"Maria!"};
+	msg.append(", ");
+	// msg += name;
+	std::string msg2 = msg + name;
+	cout << msg << endl;
+	cout << msg2 << endl;
+
+	std::string msg;
+	// cin >> msg; // но так читает до пробельного символа!
+	getline(cin, msg, ';'); // 3-ий аргумент: символ, до которого читать.
+	cout << msg << endl;
 
    return 0;
 }

@@ -33,21 +33,21 @@ int main()
 	// auto t5 = lk;    // int
 
 // с модификатором const:
-	// const int* co_ptr = nullptr;
-	// const int co_k{0}; 
-	// const int& co_lk = co_k;
+	// const int* con_ptr = nullptr;
+	// const int con_k {0}; 
+	// const int& con_lk = con_k;
 
-	// auto co_t1 = co_k;     // int
-	// auto co_t2 = *co_ptr;  // int
-	// auto co_t3 = co_ptr;   // const int*
-	// auto co_t4 = &co_ptr;  // const int**
-	// auto co_t5 = lk;       // int
+	// auto con_t1 = con_k;     // int
+	// auto con_t2 = *con_ptr;  // int
+	// auto con_t3 = con_ptr;   // const int*
+	// auto con_t4 = &con_ptr;  // const int**
+	// auto con_t5 = lk;       // int
 
 // если для нас важно оставить полностью идентичный тип.
 
-	// decltype(co_k) var1 = 1;
-	// decltype(co_ptr) var2;     // const int*
-	// decltype(co_lk) var3 = k;  // const int &
+	// decltype(con_k) var1 = 1;
+	// decltype(con_ptr) var2;     // const int*
+	// decltype(con_lk) var3 = k;  // const int &
 
 // Применение:
 	std::list<short> dg = {-3, -2, 0, 2, 3};
